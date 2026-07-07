@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atelier de Montres Suisses · Swiss Watch Tailor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prata&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Raleway:wght@300;400;500;600;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!--
+  ╔══════════════════════════════════════════════════════════════════╗
+  ║  ATELIER DE MONTRES SUISSES — статичний сайт (HTML + CSS)         ║
+  ║                                                                    ║
+  ║  ЯК РЕДАГУВАТИ:                                                     ║
+  ║   • Текст — міняйте прямо між тегами (<p>…</p>, <h2>…</h2>).        ║
+  ║   • Картинки — у атрибуті src="images/…". Файли лежать у /images.  ║
+  ║   • Телефон/пошта/міста — шукайте по тексту (Ctrl+F).              ║
+  ║   • Кольори, шрифти, відступи, розміри — усе у файлі style.css.     ║
+  ║   • Кожен блок нижче позначено коментарем БЛОК: …         ║
+  ╚══════════════════════════════════════════════════════════════════╝
+-->
+
+<!-- ============================================================
+     БЛОК: ШАПКА (HEADER)
+     Верхня смужка: назва ательє + перемикач мов (UA/EN/DE/FR/PL).
+     • Назву редагуйте в <p class="header-eyebrow">.
+     • Мови поки неактивні (href="#"). Активна мова = клас is-active.
+     • Стилі шапки: .site-header у style.css.
+============================================================ -->
+<header class="site-header">
+  <div class="header-inner">
+    <p class="header-eyebrow">Atelier de Montres Suisses · Swiss Watch Tailor</p>
+    <div class="lang-switch" aria-label="Мовні версії">
+      <span class="lang-note">(мовні версії — в розробці)</span>
+      <nav class="lang-list">
+        <a href="#" class="lang-item is-active">UA</a>
+        <a href="#" class="lang-item">EN</a>
+        <a href="#" class="lang-item">DE</a>
+        <a href="#" class="lang-item">FR</a>
+        <a href="#" class="lang-item">PL</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================
+     БЛОК: ПЕРШИЙ ЕКРАН (HERO)
+     Зліва — логотип-відео, заголовок, гасла, кнопка, перелік міст.
+     Справа — галерея з 3 великих фото.
+     • Лого: <video src="images/logo_gears_cropped.mp4"> (нижче є
+       закоментований варіант із картинкою logo.png — за потреби).
+     • Головний заголовок: <h1 class="hero-title">.
+     • Кнопка-заклик: <a class="btn btn-outline"> (текст усередині).
+     • Міста: <p class="hero-cities">.
+     • Фото галереї: 3 теги <img> у блоці .hero-gallery.
+     • Стилі: .hero, .hero-title, .hero-gallery у style.css.
+============================================================ -->
+<section class="hero">
+  <div class="hero-grid">
+
+    <div class="hero-content">
+      <div class="logo-mark">
+        <video src="./images/logo_gears_cropped.mp4" autoplay muted loop></video>
+        <!-- <img src="images/logo.png" alt="Atelier de Montres Suisses — логотип з механізмом-шестернями у формі знаку нескінченності"> -->
+        <div class="text-white">ATELIER DE MONTRES SUISSES</div>
+        <div class="text-gold">SWISS WATCH TAILOR</div>
+      </div>
+
+      <h1 class="hero-title">
+        Your Time DNA
+        <span class="hero-title-sub">Ваш час у Вашому ДНК</span>
+      </h1>
+
+      <div class="hero-statement">
+        <p class="statement-en">We do not make watches for everyone.<br>We make one watch — for You.</p>
+        <p class="statement-ua">Ми не робимо годинники для всіх. Ми робимо один годинник — для Вас.</p>
+      </div>
+
+      <div class="rule"></div>
+
+      <div class="hero-statement hero-statement--tight">
+        <p class="statement-en statement-en--small">One watch. One owner. One lifetime.</p>
+        <p class="statement-ua">Один годинник. Один власник. Одне життя.</p>
+      </div>
+
+      <div class="hero-cta-block">
+        <a href="#contact" class="btn btn-outline">Замовте Вашу Personal Bespoke session з хорложерьє</a>
+        <p class="hero-cities">Geneva · Lviv · Kyiv · Dnipro · Warsaw · Prague · Eschborn · Munich</p>
+
+      </div>
+    </div>
+
+    <div class="hero-gallery">
+      <figure class="gallery-frame gallery-frame--lg">
+        <img src="images/skelet rep3.jpg" alt="Макро циферблата авторського годинника — гравіювання та розпис">
+      </figure>
+      <figure class="gallery-frame gallery-frame--lg">
+        <img src="images/vacheron avers main1.jpg" alt="Скелетон-механізм швейцарського годинника, крупний план">
+      </figure>
+      <figure class="gallery-frame gallery-frame--lg">
+        <img src="images/watch-03-on-wrist.jpg" alt="Готовий годинник на запʼясті з ремінцем">
+      </figure>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     БЛОК: КАРУСЕЛЬ ГОДИННИКІВ (на всю ширину)
+     Стрічка фото, що сама плавно їде; її можна тягнути мишею
+     або гортати пальцем/тачпадом. Наведення/перетягування — пауза.
+     • Додати/прибрати фото: копіюйте/видаляйте рядок
+       <figure class="strip-frame"><img src="images/…"></figure>.
+     • Картинки дублюються автоматично скриптом (для безшовності) —
+       у коді тримайте лише ОДИН набір, не дублюйте вручну.
+     • Швидкість руху: змінна speed у скрипті внизу сторінки.
+     • Розмір/пропорції плиток: .strip-frame у style.css
+       (flex-basis = ширина, aspect-ratio = пропорції).
+============================================================ -->
+<section class="watch-strip" aria-label="Галерея авторських годинників">
+  <div class="watch-strip-viewport">
+    <div class="watch-strip-track">
+      <figure class="strip-frame"><img src="images/vacheron avers3.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/gal double dragon.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/gal vacheron gold classik.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/silver coin dragon.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/vacheron black-gold.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/patek mij.png" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/skelet rep2.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/tiffany.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/vach biker detail.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/chopard graw.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/coin black.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/gal nardin top.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/gal rolex.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/gal rep-komplikat1.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/gal tiffany skelet.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/gal vacheron kroshka1.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/skagen.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/chopard dragon2.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/koen revers porno.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/lange 7.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/omega skelet averse.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/lange graw.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/patek black2.jpg" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/rep chron skelet.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/vacheron kwadro.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/vasheron sakura.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/repskelet1.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/patek wenzel.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/brevet gold.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/zenith classik.JPG" alt="Авторський годинник" loading="lazy"></figure>
+    </div>
+  </div>
+
+  <div class="watch-strip-cta">
+    <a href="#contact" class="btn btn-outline">YOUR PERSONAL WATCH HERE</a>
+  </div>
+  
+  <div class="watch-strip-viewport watch-strip-rtl">
+    <div class="watch-strip-track">
+      <figure class="strip-frame"><img src="images/hebdomas skelet 3.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/frere rep2.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/patek skelet avers3.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/gal harley.png" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/vacheron black-gold.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/a.stock grav.jpg" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/lange gold back.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/moon pfase1.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/moon pfase back.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/patek skelet revers 1.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/patek black front.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/glass watch graw.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/straps4.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/vacheron black dima1.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/omega skelet rewerse.jpg" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/iwc1.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/howe.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/chopard dial1.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/nardin2.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/lange 7.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/omega skelet averse.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/vaceron revers top3.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/skelet rep2.jpg" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/moser.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/vach biker 1.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/vacheron classik avers1.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/vach biker korp.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/patek green strip.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/patek rep avers.JPG" alt="Авторський годинник" loading="lazy"></figure>
+      <figure class="strip-frame"><img src="images/iwc gold awers.JPG" alt="Авторський годинник" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     БЛОК: ІНДИВІДУАЛЬНИЙ СЕРВІС (BESPOKE SERVICE)
+     Зліва фото, справа — 3 картки послуг, ціни, телефон, кнопка.
+     • Картки: блоки <div class="service-card"> (середня з акцентом
+       має додатковий клас service-card--accent).
+     • Ціни: <p class="price-line"> (виділення — у тегах <strong>).
+     • Телефон: <p class="phone-line">.
+     • Фото зліва: <figure class="service-photo"> → src.
+     • Стилі: .service, .service-cards у style.css.
+============================================================ -->
+<section class="service">
+  <div class="service-grid">
+
+    <figure class="service-photo">
+      <img src="images/vacheron movement work process.jpg" alt="Процес ручної роботи майстра над скелетон-механізмом">
+    </figure>
+
+    <div class="service-content">
+      <p class="eyebrow">Bespoke Service</p>
+      <h2 class="section-title">Індивідуальний підхід до кожного годинника</h2>
+      <div class="rule"></div>
+
+      <div class="service-cards">
+        <div class="service-card">
+          <div class="service-card-content">
+          <h3>Підбір механізму</h3>
+          <p>Експертний вибір швейцарського механізму під Ваші вимоги</p>
+        </div>
+          <div class="service-card-img">
+            <img src="images/patek3.webp" alt="">
+          </div>
+        </div>
+        <div class="service-card service-card--accent">
+          <div class="service-card-content">
+          <h3>Авторський дизайн</h3>
+          <p>Унікальне оформлення: циферблат, гравіювання, скелетонізація</p>
+        </div>
+          <div class="service-card-img">
+            <img src="images/vacheron avers2.JPG" alt="">
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-card-content">
+          <h3>Персональна збірка</h3>
+          <p>Корпус, ремінець, циферблат, стрілки, фінальна обробка — все під параметри Вашої руки</p>
+        </div>
+          <div class="service-card-img">
+            <img src="images/iwc skelet avers3.JPG" alt="">
+          </div>
+        </div>
+      </div>
+
+      <div class="rule"></div>
+
+      <p class="price-line">Кожна послуга — <strong>від 500 CHF</strong> з авторським наглядом Майстра</p>
+      <p class="price-line">Спеціальний сервіс — пошук та придбання будь-якого годинника під замовлення. Від <strong>199 CHF + 10% від вартості</strong>.</p>
+
+            <a href="#contact" class="btn btn-outline">Зарезервуйте Вашу Private Bespoke Session</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     БЛОК: ШЛЯХ ДО ГОДИННИКА (JOURNEY / BESPOKE EXPERIENCE)
+     Зліва фото, справа — 3 «стовпи» цінностей + таймлайн етапів
+     (Bespoke Session → Design → … → Delivery) + підсумок і кнопка.
+     • Стовпи: <div class="pillar"> (заголовок <h3> + опис <p>).
+     • Етапи: <li class="timeline-step"> (кожен містить 2 кроки).
+       Іконки етапів — символи у <span class="timeline-icon"> (✎ ⚙ ⛓).
+     • Підсумок (терміни, ціна): блок .journey-footer.
+     • Фото зліва: <figure class="journey-photo"> → src.
+     • Стилі: .journey, .pillars, .timeline у style.css.
+============================================================ -->
+<section class="journey">
+  <div class="journey-grid">
+
+    <figure class="journey-photo">
+      <img src="images/work in process.jpg" alt="">
+    </figure>
+
+    <div class="journey-content">
+      <p class="eyebrow">The Bespoke Experience</p>
+      <h2 class="section-title">Your Journey to a Unique Timepiece</h2>
+      <p class="section-subtitle">Від ідеї до Вашого годинника — 4–6 місяців майстерності</p>
+      <div class="rule"></div>
+
+      <div class="pillars">
+        <div class="pillar">
+          <div class="pillar-content">
+          <h3>Your Time DNA</h3>
+          <p>Ваш годинник — це не прикраса. Це маніфест. Кожна деталь закодована під Вас: характер, ритм, естетика.</p>
+          </div>
+          <div class="pillar-icon">
+            <img src="images/rep tiffany1 rewers.JPG"/>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-content">          
+          <h3>Шість майстрів</h3>
+          <p>Від першого ескізу до фінального штриху — жодного компромісу. Лише те, що гідне Вашого запʼястя.</p>
+          </div>
+          <div class="pillar-icon">
+            <img src="images/hebdomas skelet2.JPG"/>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-content">
+          <h3>Два століття</h3>
+          <p>Patek Philippe, Vacheron Constantin, Audemars Piguet — механізми, що пережили епохи. Тепер у Вашому годиннику.</p>
+          </div>
+          <div class="pillar-icon">
+            <img src="images/patek skelet revers 1.JPG"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="rule"></div>
+
+      <ol class="timeline">
+        <li class="timeline-step">
+          <div class="timeline-text">
+            <h4>Bespoke Session</h4>
+            <p>Персональна зустріч з хорложерьє. Ваші бажання, стиль, характер — основа майбутнього годинника.</p>
+          </div>
+          <div class="timeline-text timeline-text--icon">
+            <span class="timeline-icon" aria-hidden="true">✎</span>
+            <div>
+              <h4>Design</h4>
+              <p>Авторський ескіз циферблату, корпусу, гравіювання. Затверджений особисто Вами.</p>
+            </div>
+          </div>
+        </li>
+        <li class="timeline-step">
+          <div class="timeline-text">
+            <h4>Movement Selection</h4>
+            <p>Patek Philippe, Vacheron Constantin, A. Lange &amp; Söhne, Audemars Piguet та інші. Лише найкраще.</p>
+          </div>
+          <div class="timeline-text timeline-text--icon">
+            <span class="timeline-icon" aria-hidden="true">⚙</span>
+            <div>
+              <h4>Assembly</h4>
+              <p>Ручна збірка майстром. Корпус, ремінець, циферблат, стрілки — під параметри Вашої руки.</p>
+            </div>
+          </div>
+        </li>
+        <li class="timeline-step">
+          <div class="timeline-text">
+            <h4>Quality Control</h4>
+            <p>Багатоетапний контроль якості. Кожен компонент перевіряється особисто майстром.</p>
+          </div>
+          <div class="timeline-text timeline-text--icon">
+            <span class="timeline-icon" aria-hidden="true">⛓</span>
+            <div>
+              <h4>Delivery</h4>
+              <p>Урочиста передача годинника. Єдиний такий у світі.</p>
+            </div>
+          </div>
+        </li>
+      </ol>
+
+      <div class="rule"></div>
+
+      <div class="journey-footer">
+        <div class="journey-footer-col">
+          <p><strong>Timeline:</strong> 4–6 місяців</p>
+          <p><strong>Starting from:</strong> 500 CHF per service</p>
+          <p><strong>Special service:</strong> пошук та придбання годинника — від 199 CHF + 10% від вартості</p>
+        </div>
+        <div class="journey-footer-col">
+          <p>Зарезервуйте зустріч з хорложерьє</p>
+          <p class="phone-line">+380 676 700 242</p>
+          <p class="photo-note">на фото — реальні годинники наших Клієнтів</p>
+        </div>
+      </div>
+
+      <a href="#contact" class="btn btn-outline">Ваша Personal Bespoke Session тут</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     БЛОК: ЧОТИРИ РІВНІ (FOUR TIERS)
+     Сітка з 4 карток рівнів годинників (фото + назва + опис + бренди).
+     • Картка: <article class="tier-card">.
+     • Назва рівня: <h3> (напр. Étage Supérieur).
+     • Перелік брендів: <p class="tier-brands"> (розділювач « · »).
+     • Примітка під сіткою: <p class="tiers-note">.
+     • Стилі: .tiers, .tiers-grid, .tier-card у style.css.
+============================================================ -->
+<section class="tiers">
+  <div class="tiers-head">
+    <h2 class="section-title section-title--center">The Four Tiers of Excellence</h2>
+    <p class="section-subtitle section-subtitle--center section-subtitle--accent">Чотири рівні досконалості</p>
+  </div>
+
+  <div class="rule rule--center"></div>
+
+  <div class="tiers-grid">
+    <article class="tier-card">
+      <figure class="tier-photo">
+        <img src="images/vacheron avers2.jpg" alt="Годинник рівня Étage Supérieur — скелетон-хронограф">
+      </figure>
+      <h3>Étage Supérieur</h3>
+      <p class="tier-desc">Вершина годинникової майстерності</p>
+      <p class="tier-brands">Patek Philippe · Vacheron Constantin · A. Lange &amp; Söhne · Audemars Piguet · Blancpain · Breguet · Jaeger‑LeCoultre</p>
+    </article>
+
+    <article class="tier-card">
+      <figure class="tier-photo">
+        <img src="images/gal nardin top.jpg" alt="Годинник рівня Haut Étage — класичний циферблат">
+      </figure>
+      <h3>Haut Étage</h3>
+      <p class="tier-desc">Витончена розкіш для справжніх цінителів</p>
+      <p class="tier-brands">Girard‑Perregaux · Ulysse Nardin · IWC · Bovet · H. Moser · Jaquet Droz</p>
+    </article>
+
+    <article class="tier-card">
+      <figure class="tier-photo">
+        <img src="images/chopard3.jpg" alt="Годинник рівня Étage Prestige">
+      </figure>
+      <h3>Étage Prestige</h3>
+      <p class="tier-desc">Символ статусу та неперевершеної якості</p>
+      <p class="tier-brands">Cartier · Chopard · Tiffany · C.H. Meylan · Touchon · Rolex · Ed. Koehn · Zenith</p>
+    </article>
+
+    <article class="tier-card">
+      <figure class="tier-photo">
+        <img src="images/rep skelet 2.jpg" alt="Годинник рівня Étage Complication — хронограф з ускладненнями">
+      </figure>
+      <h3>Étage Complication</h3>
+      <p class="tier-desc">Спеціально для поціновувачів</p>
+      <p class="tier-brands">Repeaters · Dead Second · Split‑Second · Chronographs · Moon‑Phase · Double‑Sided · Unique Complications</p>
+    </article>
+  </div>
+
+  <div class="rule rule--center"></div>
+
+  <p class="tiers-note">Всі годинники виготовляються виключно на індивідуальне замовлення. Ціна залежить від обраного механізму та складності виконання. Від 500 CHF.</p>
+
+  <div class="tiers-cta">
+    <a href="#contact" class="btn btn-outline">Зарезервуйте Вашу Personal Bespoke Session з вашим хорложерьє</a>
+  </div>
+</section>
+
+<!-- ============================================================
+     БЛОК: ПОРТФОЛІО (PORTFOLIO)
+     Зліва фото, справа — гасло та колаж-сітка з прикладами робіт.
+     • Колаж: блок .portfolio-collage, кожне фото —
+       <figure class="collage-frame"><img src="images/…"></figure>.
+       Додавайте/видаляйте такі рядки, щоб змінити кількість фото.
+     • Телефон/кнопка внизу: блок .portfolio-cta-row.
+     • Стилі: .portfolio, .portfolio-collage у style.css.
+============================================================ -->
+<section class="portfolio">
+  <div class="portfolio-grid">
+
+    <figure class="portfolio-photo">
+      <img src="images/vacheron skelet reverse kwadrat.jpg" alt="Атмосфера ательє під час роботи над годинником">
+    </figure>
+
+    <div class="portfolio-content">
+      <p class="eyebrow">Atelier Portfolio</p>
+      <h2 class="section-title">Надихайтесь…</h2>
+      <p class="section-subtitle">Ваш годинник вже чекає на Ваші ідеї</p>
+      <div class="rule"></div>
+
+      <p class="portfolio-statement-en">Every watch tells a story. Yours is yet to be written.</p>
+      <p class="portfolio-statement-ua">Кожен годинник розповідає історію. Ваша ще попереду.</p>
+
+      <div class="rule"></div>
+
+      <div class="portfolio-collage">
+        <figure class="collage-frame"><img src="images/vacheron avers7.jpg" alt="Годинник з портфоліо ательє — приклад 1"></figure>
+        <figure class="collage-frame"><img src="images/patek mij.png" alt="Годинник з портфоліо ательє — приклад 2"></figure>
+        <figure class="collage-frame"><img src="images/omega skelet averse.jpg" alt="Годинник з портфоліо ательє — приклад 3"></figure>
+        <figure class="collage-frame"><img src="images/nardin2.jpg" alt="Годинник з портфоліо ательє — приклад 4"></figure>
+        <figure class="collage-frame"><img src="images/moser.jpg" alt="Годинник з портфоліо ательє — приклад 5"></figure>
+        <figure class="collage-frame"><img src="images/patek black.jpg" alt="Годинник з портфоліо ательє — приклад 6"></figure>
+        <figure class="collage-frame"><img src="images/rep tiffany1 rewers.jpg" alt="Годинник з портфоліо ательє — приклад 6"></figure>
+        <figure class="collage-frame"><img src="images/skelet rep2.jpg" alt="Годинник з портфоліо ательє — приклад 6"></figure>
+        <figure class="collage-frame"><img src="images/koen avers porno.jpg" alt="Годинник з портфоліо ательє — приклад 6"></figure>
+        <figure class="collage-frame"><img src="images/iwc gold classik.jpg" alt="Годинник з портфоліо ательє — приклад 6"></figure>
+        <figure class="collage-frame"><img src="images/gal double dragon.jpg" alt="Годинник з портфоліо ательє — приклад 6"></figure>
+        <figure class="collage-frame"><img src="images/chrono rep2.jpg" alt="Годинник з портфоліо ательє — приклад 6"></figure>
+        <figure class="collage-frame"><img src="images/gal rolex.jpg" alt="Годинник з портфоліо ательє — приклад 6"></figure>
+        <figure class="collage-frame"><img src="images/gal rep-komplikat1.jpg" alt="Годинник з портфоліо ательє — приклад 6"></figure>
+        <figure class="collage-frame"><img src="images/gal tiffany skelet.jpg" alt="Годинник з портфоліо ательє — приклад 6"></figure>
+        <figure class="collage-frame"><img src="images/gal vacheron kroshka1.jpg" alt="Годинник з портфоліо ательє — приклад 6"></figure>
+        <figure class="collage-frame"><img src="images/gal patek skelet.png" alt="Годинник з портфоліо ательє — приклад 6"></figure>
+        <figure class="collage-frame"><img src="images/vacheron classik2.jpg" alt="Годинник з портфоліо ательє — приклад 6"></figure>
+      </div>
+
+      <p class="photo-note">*на фото — реальні годинники наших Клієнтів · All watches shown are real client commissions</p>
+
+      <div class="portfolio-cta-row">
+        <p>Зарезервуйте зустріч з хорложерьє</p>
+        <a href="#contact" class="btn btn-outline">Ваша Private Bespoke Session тут</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     БЛОК: КОНТАКТИ / ПІДВАЛ (CONTACT / FOOTER)
+     Зліва фото, справа — контакти у 3 колонках, лого, кнопка, копірайт.
+     • id="contact" — сюди ведуть усі кнопки «Зарезервуйте…» (href="#contact").
+     • 3 колонки контактів: <div class="contact-col"> (телефон, міста тощо).
+     • Телефон: <p class="phone-line">.
+     • Лого в підвалі: .footer-logo-block → src="images/logo.png".
+     • Рік у копірайті: <p class="copyright">.
+     • Стилі: .contact, .contact-columns у style.css.
+============================================================ -->
+<footer class="contact" id="contact">
+  <div class="contact-grid">
+
+    <figure class="contact-photo">
+      <img src="images/watch-03-on-wrist.jpg" alt="Класичний годинник на запʼясті, фінальний штрих майстра">
+    </figure>
+
+    <div class="contact-content">
+      <h2 class="section-title">Contact Your Personal Horloger</h2>
+      <p class="section-subtitle">Зв'яжіться з Вашим особистим хорложерьє</p>
+      <div class="rule"></div>
+
+      <h3 class="contact-statement">Your Time DNA begins with a single conversation.</h3>
+
+      <div class="rule"></div>
+
+      <div class="contact-columns">
+        <div class="contact-col">
+          <h4>Слідкуй за нами</h4>
+          <p>Swiss Watch Tailor<br>Boutique Atelier</p>
+          <p>Geneva, Switzerland</p>
+          <p>adms.watch</p>
+        </div>
+        <div class="contact-col">
+          <h4>Партнер в Україні</h4>
+          <p>SW Boutique Atelier<br>Lviv partner</p>
+          <p class="phone-line">+380 676 700 242</p>
+        </div>
+        <div class="contact-col">
+          <h4>Мережа партнерів</h4>
+          <p>Lviv · Kyiv · Dnipro</p>
+          <p>Warsaw · Prague</p>
+          <p>Eschborn · Munich</p>
+          <p>Geneva HQ</p>
+        </div>
+      </div>
+
+      <p class="lang-footnote">Сайт доступний українською · English version coming soon · Version française bientôt · Deutsche Version demnächst · Wersja polska wkrótce</p>
+
+      <div class="rule"></div>
+<div class="footer-logo">
+       <div class="logo-mark">
+        <video src="./images/logo_gears_cropped.mp4" autoplay muted loop></video>
+        <!-- <img src="images/logo.png" alt="Atelier de Montres Suisses — логотип з механізмом-шестернями у формі знаку нескінченності"> -->
+        <div class="text-white">ATELIER DE MONTRES SUISSES</div>
+        <div class="text-gold">SWISS WATCH TAILOR</div>
+      </div>
+</div>
+      <p class="footer-statement-en">One watch. One owner. One lifetime.</p>
+      <p class="footer-statement-ua">Один годинник. Один власник. Одне життя.</p>
+
+      <a href="#contact" class="btn btn-outline">Ваша Personal Bespoke Session з Вашим хорложерьє тут</a>
+
+      <p class="copyright">© 2026 Atelier de Montres Suisses · Swiss Watch Tailor · adms.watch</p>
+    </div>
+
+  </div>
+</footer>
+
+<!-- ============================================================
+     СКРИПТ: АВТОПРОКРУТКА КАРУСЕЛІ
+     Керує блоком «КАРУСЕЛЬ ГОДИННИКІВ» вище.
+     • speed — швидкість руху (більше = швидше).
+     • Дублює фото один раз для безшовного циклу.
+     • Пауза при наведенні/перетягуванні; працює тяга мишею і свайп.
+     Зазвичай тут нічого міняти не треба, окрім швидкості (speed).
+============================================================ -->
+<script>
+(function () {
+  var viewport = document.querySelectorAll('.watch-strip-viewport');
+  var track = document.querySelectorAll('.watch-strip-track');
+  if (!viewport || !track) return;
+
+  // Duplicate slides once for a seamless infinite loop
+  // However, length doubles up on refresh, and doesn't match element width.
+  track[0].innerHTML += track[0].innerHTML;
+  track[1].innerHTML += track[1].innerHTML;
+
+  var paused = false;
+  var speed = 0.5; // px per frame
+  var preventScrollEvent = [false, false];
+
+  // In testing, tracks end up having different widths. 
+  // Likely due to hover event expanding an element.
+  function half() { return track[0].scrollWidth / 2; }
+  function half2() { return track[1].scrollWidth / 2; }
+
+  function setScrollLeft(portNum, x) {
+    preventScrollEvent[portNum] = true;
+    viewport[portNum].scrollLeft = x;
+  }
+
+  function step() {
+    if (!paused) {
+      if (viewport[0].scrollLeft > half()) {
+        setScrollLeft(0, viewport[0].scrollLeft - half());
+      }
+      setScrollLeft(0, viewport[0].scrollLeft + speed);
+      
+      
+      if (-viewport[1].scrollLeft > half2()) {
+        setScrollLeft(1, viewport[1].scrollLeft + half2());
+      }
+      if(viewport[1].scrollLeft >= 1) {
+        // Bug, can't set scrollLeft to anything above 1. It gets stuck.
+        // This is possible to achieve on mobile.
+        setScrollLeft(1, 0);
+      }
+      else {
+        setScrollLeft(1, viewport[1].scrollLeft - speed);
+      }
+      
+    }
+    requestAnimationFrame(step);
+  }
+
+  // Pause on hover (desktop) so reading is comfortable
+  viewport.forEach((vp) => vp.addEventListener('mouseenter', function () { paused = true; }));
+  viewport.forEach((vp) => vp.addEventListener('mouseleave', function () { if (!dragging) paused = false; }));
+  
+  var touching = [false, false];
+  // Detect if touching.
+  viewport[0].addEventListener('touchstart', function() {touching[0] = true;});
+  viewport[0].addEventListener('touchend', function() {touching[0] = false;});
+  viewport[1].addEventListener('touchstart', function() {touching[1] = true;});
+  viewport[1].addEventListener('touchend', function() {touching[1] = false;});
+
+  // Keep the loop seamless when scrolling/swiping
+  viewport[0].addEventListener('scroll', function () {
+    var prevent = preventScrollEvent[0];
+    preventScrollEvent[0] = false;
+    // If scroll was set by the animation, do not alter it. 
+    // Do not stop the event if this is triggered by touch.
+    if(prevent && !touching[0])
+      return;
+
+    if (viewport[0].scrollLeft <= 0) { viewport[0].scrollLeft += half(); console.log("added")}
+    else if (viewport[0].scrollLeft > half()) { viewport[0].scrollLeft -= half(); console.log("removed")}
+  }, { passive: true });
+
+  viewport[1].addEventListener('scroll', function () {
+    var prevent = preventScrollEvent[1];
+    preventScrollEvent[1] = false;
+    // If scroll was set by the animation, do not alter it. 
+    // Do not stop the event if this is triggered by touch.
+    if(prevent && !touching[1]) {
+      return;
+    }
+
+    if (viewport[1].scrollLeft < -half2()) { viewport[1].scrollLeft += half2(); console.log("added")} 
+    else if(viewport[1].scrollLeft >= 0) { viewport[1].scrollLeft -= half2(); console.log("removed")}  
+  }, { passive: true });
+
+  // --- Drag-to-scroll (mouse / pen) ---
+  var dragging = false, startX = 0, startScroll = 0, moved = false;
+
+  viewport.forEach((vp) => {
+    vp.addEventListener('pointerdown', function (e) {
+      if (e.pointerType === 'touch') { paused = true; return; } // native touch handles itself
+      dragging = true;
+      moved = false;
+      paused = true;
+      startX = e.clientX;
+      startScroll = vp.scrollLeft;
+      vp.classList.add('is-dragging');
+      vp.setPointerCapture(e.pointerId);
+    });
+
+    vp.addEventListener('pointermove', function (e) {
+      if (!dragging) return;
+      var dx = e.clientX - startX;
+      if (Math.abs(dx) > 3) moved = true;
+      // !!! This holds the scroll in place in spite of seamless 'scroll' events run above. This breaks it. 
+      vp.scrollLeft = startScroll - dx;
+    });
+  });
+
+  function endDrag(e) {
+    if (e.pointerType === 'touch') { paused = false; return; }
+    if (!dragging) return;
+    dragging = false;
+    paused = false;
+    viewport.forEach((vp) => vp.classList.remove('is-dragging'));
+  }
+  viewport.forEach((vp) => vp.addEventListener('pointerup', endDrag));
+  viewport.forEach((vp) => vp.addEventListener('pointercancel', endDrag));
+  viewport.forEach((vp) => vp.addEventListener('pointerleave', endDrag));
+
+
+  // Don't let a drag trigger image clicks/links
+  viewport.forEach((vp) => vp.addEventListener('click', function (e) {
+    if (moved) { e.preventDefault(); e.stopPropagation(); }
+    // Set image source to a fullscreen, screen-bound element and show it.
+  }, true));
+
+
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    requestAnimationFrame(step);
+  }
+})();
+</script>
+
+</body>
+</html>

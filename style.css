@@ -1,0 +1,873 @@
+/* ===========================================================
+   ATELIER DE MONTRES SUISSES — НАЛАШТУВАННЯ ДИЗАЙНУ (design tokens)
+   -----------------------------------------------------------
+   ЦЕ ГОЛОВНИЙ БЛОК КЕРУВАННЯ ВИГЛЯДОМ САЙТУ.
+   Тут зібрані всі кольори, шрифти та базові розміри в одному місці.
+   Зміните значення тут — воно застосується одразу по всьому сайту.
+
+   • Кольори — у форматі #RRGGBB (підгляньте/підберіть на htmlcolorcodes.com).
+   • Золото бренду = --brass (#C8A96A). Фон = --ink-green. Текст = --cream.
+   • Шрифти підключені у <head> файлу index.html (Google Fonts).
+   • Нижче, у самих секціях, кольори майже не задаються напряму —
+     вони беруться звідси через var(--назва).
+   Палітра: глибокий смарагдово-зелений фон, латунно-золотий акцент,
+   кремовий текст. Шрифти: Prata (заголовки), Raleway (текст), Jost (дрібний).
+=========================================================== */
+
+:root {
+  /* --- КОЛЬОРИ --- */
+  --ink-deepest: #0c2a1d;     /* чорно-зелений, фон футера/контрастних блоків */
+  --ink-green:   #0c2a1d;     /* основний фон секцій */
+  --ink-green-2: #123527;     /* картки, підняті поверхні */
+  --ink-green-3: #1a4434;     /* hover/підняті елементи */
+  --line-soft:   rgba(200, 169, 106, 0.28);
+  --line-soft-2: rgba(232, 227, 212, 0.14);
+  --cream:       #dbdedb;     /* основний текст на темному */
+  --cream-dim:   #B9C4BA;     /* другорядний текст */
+  --cream-dim-2: #dbdedb;     /* третинний текст / підписи */
+  --brass:       #C8A96A;     /* латунний акцент */
+  --brass-light: #E3CB95;
+  --blush:       #D9A77A;     /* теплий відблиск (як на оригінальних фото) */
+
+  /* --- ШРИФТИ (підключення — у <head> index.html) --- */
+  --font-display: 'Prata', 'Cormorant Garamond', serif;   /* заголовки */
+  --font-serif-alt: 'Cormorant Garamond', serif;          /* курсивні підзаголовки */
+  --font-body: 'Raleway', sans-serif;                     /* основний текст */
+  --font-utility: 'Jost', sans-serif;                     /* дрібні підписи, кнопки */
+
+  /* --- РОЗМІРИ --- */
+  --container: 1280px;                       /* макс. ширина контенту по центру */
+  --gap-section: clamp(40px, 6vw, 80px);    /* вертикальні відступи між секціями */
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--ink-green);
+  color: var(--cream);
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a { color: inherit; }
+
+:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+
+/* ===========================================================
+   СПІЛЬНІ ЕЛЕМЕНТИ (SHARED ELEMENTS)
+   Те, що повторюється всюди: золоті лінії-розділювачі (.rule),
+   надзаголовки (.eyebrow), заголовки секцій (.section-title),
+   кнопки (.btn), телефон (.phone-line), рамки фото.
+   Зміните тут — зміниться в усіх секціях одразу.
+=========================================================== */
+
+.rule {
+  width: 100%;
+  height: 1px;
+  background: var(--line-soft);
+  margin: 14px 0;
+}
+.rule--center { max-width: var(--container); margin: 40px auto; }
+
+.eyebrow {
+  font-family: var(--font-utility);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.72rem;
+  color: var(--brass);
+  margin: 0 0 14px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.9rem, 3.4vw, 2.7rem);
+  line-height: 1.18;
+  margin: 0 0 10px;
+  color: var(--cream);
+}
+.section-title--center { text-align: center; }
+
+.section-subtitle {
+  font-family: var(--font-serif-alt);
+  font-style: bold;
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  color: var(--cream-dim);
+  margin: 0 0 6px;
+}
+.section-subtitle--center { text-align: center; }
+.section-subtitle--accent { color: var(--brass); font-style: normal; letter-spacing: 0.03em; }
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-utility);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+  text-decoration: none;
+  padding: 17px 34px;
+  border-radius: 2px;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  text-align: center;
+}
+.btn-outline {
+  border: 1px solid var(--brass);
+  color: var(--brass-light);
+  background: transparent;
+}
+.btn-outline:hover { background: var(--brass); color: var(--ink-deepest); }
+.btn-solid {
+  background: var(--brass);
+  color: var(--ink-deepest);
+  border: 1px solid var(--brass);
+}
+.btn-solid:hover { background: transparent; color: var(--brass-light); }
+
+.phone-line {
+  font-family: var(--font-utility);
+  letter-spacing: 0.04em;
+  color: var(--brass);
+  font-size: 1rem;
+  margin: 6px 0 20px;
+}
+.phone-line--inline { display: inline; margin: 0; }
+
+.photo-note {
+  font-size: 0.78rem;
+  color: var(--cream-dim-2);
+  margin: 14px 0;
+}
+
+/* image frames: thin brass hairline + corner ticks, echoes watchmaker loupe framing */
+.gallery-frame, .tier-photo, .collage-frame, .service-photo, .journey-photo,
+.portfolio-photo, .contact-photo {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  background: var(--ink-green-2);
+  flex:1;
+}
+
+.gallery-frame img, .tier-photo img, .collage-frame img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+
+/* ===========================================================
+   ШАПКА (HEADER) — верхня смужка з назвою та перемикачем мов
+=========================================================== */
+.site-header {
+  background: var(--ink-deepest);
+  border-bottom: 1px solid var(--line-soft-2);
+  padding: 18px clamp(20px, 4vw, 56px);
+}
+.header-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.header-eyebrow {
+  font-family: var(--font-utility);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+  margin: 0;
+}
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.lang-note {
+  font-size: 0.72rem;
+  color: var(--cream-dim-2);
+}
+.lang-list {
+  display: flex;
+  gap: 8px;
+}
+.lang-item {
+  font-family: var(--font-utility);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  border: 1px solid var(--line-soft);
+  padding: 5px 11px;
+  text-decoration: none;
+  color: var(--cream-dim);
+}
+.lang-item.is-active {
+  color: var(--brass-light);
+  border-color: var(--brass);
+}
+
+/* ===========================================================
+   ПЕРШИЙ ЕКРАН (HERO) — лого+текст зліва, галерея фото справа
+   .hero-grid — двоколонкова сітка (на мобільному стає в один стовпчик).
+=========================================================== */
+.hero {
+  padding: var(--gap-section) clamp(20px, 4vw, 56px);
+}
+.hero-grid {
+  max-width: var(--container);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.10fr 0.90fr;
+  grid-auto-rows: max-content;
+  gap: clamp(40px, 5vw, 80px);
+  align-items: start;
+}
+.logo-mark {
+  /*max-width: 420px;*/
+  margin-bottom: 40px;
+  font-family: var(--font-display);
+  font-size: clamp(0.8rem, 5vw, 1.1rem);
+  margin: 0 0 28px;
+  line-height: 1.1;
+  font-weight: 600;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap:12px;
+  align-items: center;
+  letter-spacing: 12%;
+}
+.text-white{
+  color: #ffff;
+}
+.logo-mark img, .logo-mark video { width: 50%; }
+
+.hero-content {
+  display:grid;
+  height:100%;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 5vw, 2.4rem);
+  margin: 0 0 12px;
+  line-height: 1.1;
+  font-weight: 500;
+}
+.hero-title+p{
+  margin-bottom: 24px;
+}
+.hero-title-sub {
+  display: block;
+  font-family: var(--font-serif-alt);
+ 
+  font-weight: 400;
+  font-size: clamp(1.2rem, 1.8vw, 1.6rem);
+  color: var(--cream-dim);
+  margin-top: 10px;
+}
+
+.hero-statement { margin: 0; }
+/*.hero-statement--tight { margin-top: 4px; }*/
+.statement-en {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2.4vw, 1.8rem);
+  line-height: 1.35;
+  margin: 0 0 10px;
+  color: var(--cream);
+}
+.statement-en--small { font-size: clamp(1.1rem, 1.9vw, 1.4rem); }
+.statement-ua {
+  font-size: 18px;
+  color: var(--cream-dim);
+  margin: 0;
+  max-width: 46ch;
+}
+
+.hero-cta-block {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  margin-top: 28px; 
+}
+.hero-cities {
+  font-family: var(--font-utility);
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+  color: var(--cream-dim-2);
+  align-content: flex-end;
+  margin : 10px 0 0 0 
+}
+.hero-foot {
+  font-size: 0.74rem;
+  color: var(--cream-dim-2);
+  margin: 0;
+}
+
+/* hero gallery — uneven grid echoing the original (3 tall, 2 small side-by-side, 1 tall) */
+.hero-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 0;
+  min-height: 100%;
+}
+.gallery-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.gallery-frame--sm img { aspect-ratio: 1/1; }
+.gallery-frame-copy { display :none; }
+
+/* ===========================================================
+   СЕРВІС (SERVICE) — фото зліва, контент справа (поділ навпіл)
+   .service-cards — сітка з 3 карток послуг.
+=========================================================== */
+.service { background: var(--ink-deepest); }
+.service-grid {
+  display: grid;
+  grid-template-columns: 0.65fr 1.35fr;
+  min-height: 640px;
+}
+.service-photo { min-height: 100%; }
+.service-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+.service-content {
+  padding: var(--gap-section) clamp(28px, 6vw, 80px) 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.service-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 18px;
+}
+.service-card {
+  background: var(--ink-green-2);
+  border: 1px solid var(--line-soft-2);
+  padding: 22px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.service-card-img{
+  margin-top: 24px;
+}
+.service-card-img img{
+  aspect-ratio: 1/1;
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.service-card--accent {
+  border-color: var(--line-soft);
+  background: var(--ink-green-3);
+}
+.service-card h3 {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.86rem;
+  color: var(--brass-light);
+  margin: 0 0 10px;
+}
+.service-card p {
+  font-size: 0.86rem;
+  color: var(--cream-dim);
+  margin: 0;
+  line-height: 1.55;
+}
+
+.price-line {
+  font-size: 0.96rem;
+  color: var(--cream-dim);
+  margin: 10px 0;
+}
+.price-line strong { color: var(--brass-light); font-weight: 600; }
+
+/* ===========================================================
+   ШЛЯХ ДО ГОДИННИКА (JOURNEY) — фото зліва, контент справа
+   .pillars — 3 «стовпи» цінностей; .timeline — стрічка етапів.
+=========================================================== */
+.journey { padding: var(--gap-section) clamp(20px, 4vw, 56px); }
+.journey-grid {
+  max-width: var(--container);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.78fr 1.22fr;
+  gap: clamp(32px, 5vw, 64px);
+}
+.journey-content {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.journey-photo {
+  align-self: stretch;
+}
+.journey-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: sticky;
+  top: 24px;
+  /* max-height: calc(100vh - 48px); */
+}
+
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+.pillar {
+  background: var(--ink-green-2);
+  padding: 20px 18px;
+  border-top: 2px solid var(--brass);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.pillar h3 {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.82rem;
+  color: var(--brass-light);
+  margin: 0 0 10px;
+}
+.pillar p {
+  font-size: 0.85rem;
+  color: var(--cream-dim);
+  margin: 0;
+  line-height: 1.55;
+}
+.pillar-icon{
+  margin-top: 24px;
+}
+.pillar-icon img{
+  aspect-ratio: 1/1;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* timeline — signature element: a watch "rail" of steps, each a tick on the strip */
+.timeline {
+  list-style: none;
+  margin: 24px 0;
+  padding: 0;
+  border-left: 1px solid var(--line-soft);
+}
+.timeline-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  padding: 22px 0 22px 28px;
+  border-bottom: 1px solid var(--line-soft-2);
+}
+.timeline-step:last-child { border-bottom: none; }
+.timeline-step::before {
+  content: '';
+  position: absolute;
+  left: -4.5px;
+  top: 28px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--brass);
+}
+.timeline-text h4 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  margin: 0 0 8px;
+  color: var(--cream);
+  text-transform: uppercase;
+}
+.timeline-text p {
+  font-size: 0.86rem;
+  color: var(--cream-dim);
+  margin: 0;
+  line-height: 1.55;
+}
+.timeline-text--icon {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 14px;
+}
+.timeline-icon {
+  font-size: 1.3rem;
+  color: var(--brass);
+  line-height: 1.4;
+}
+
+.journey-footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin: 8px 0 28px;
+}
+.journey-footer p {
+  font-size: 0.88rem;
+  color: var(--cream-dim);
+  margin: 0 0 8px;
+}
+.journey-footer-col .phone-line { margin: 4px 0 10px; }
+
+/* ===========================================================
+   ЧОТИРИ РІВНІ (FOUR TIERS) — сітка з 4 карток рівнів годинників
+   .tiers-grid — 4 колонки (2 на планшеті, 1 на телефоні).
+=========================================================== */
+.tiers {
+  background: var(--ink-deepest);
+  padding: 0 clamp(20px, 4vw, 56px);
+}
+.tiers-head { max-width: var(--container); margin: 0 auto; }
+
+.tiers-grid {
+  max-width: var(--container);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  gap: 24px;
+}
+.tier-card { text-align: center; }
+.tier-photo {
+  aspect-ratio: 1/1;
+  border: 1px solid var(--line-soft-2);
+  margin-bottom: 20px;
+}
+.tier-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  margin: 0 0 8px;
+  color: var(--brass-light);
+  text-transform: uppercase;
+}
+.tier-desc {
+  font-size: 0.84rem;
+  color: var(--cream-dim);
+  margin: 0 0 14px;
+}
+.tier-brands {
+  font-family: var(--font-utility);
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  color: var(--cream-dim-2);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.tiers-note {
+  max-width: var(--container);
+  margin: 0 auto;
+  font-size: 0.88rem;
+  color: var(--cream-dim);
+  text-align: center;
+}
+.tiers-cta { text-align: center; margin-top: 28px; }
+
+/* ===========================================================
+   ПОРТФОЛІО (PORTFOLIO) — фото зліва, колаж робіт справа
+   .portfolio-collage — сітка-колаж (3 колонки, 2 на телефоні).
+=========================================================== */
+.portfolio { padding: var(--gap-section) clamp(20px, 4vw, 56px) }
+.portfolio-grid {
+  max-width: var(--container);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+  gap: clamp(32px, 5vw, 64px);
+}
+.portfolio-photo {
+  align-self: stretch;
+}
+.portfolio-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: sticky;
+  top: 24px;
+  /* max-height: calc(100vh - 48px); */
+}
+
+.portfolio-statement-en {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  line-height: 1.4;
+  margin: 6px 0 10px;
+}
+.portfolio-statement-ua {
+  font-size: 0.9rem;
+  color: var(--cream-dim);
+  margin: 0;
+}
+
+.portfolio-collage {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 14px;
+  margin: 24px 0 10px;
+}
+.collage-frame { aspect-ratio: 1/1; border: 1px solid var(--line-soft-2); }
+
+.portfolio-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: 24px;
+}
+.portfolio-cta-row p {
+  font-size: 0.9rem;
+  color: var(--cream-dim);
+  margin: 0;
+}
+
+/* ===========================================================
+   КАРУСЕЛЬ ГОДИННИКІВ (WATCH CAROUSEL) — стрічка на всю ширину
+   Автопрокрутка + тяга мишею/свайп. Логіка руху — у <script> в index.html.
+   • .strip-frame → flex-basis = ширина плитки (скільки фото видно на екран),
+     aspect-ratio = пропорції плитки (зараз 4/5, портрет).
+=========================================================== */
+.watch-strip {
+  background: var(--ink-deepest);
+}
+
+.watch-strip-viewport {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: clamp(28px, 4vw, 56px) 0;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;            /* Firefox */
+  -ms-overflow-style: none;         /* IE/Edge */
+}
+
+.watch-strip-rtl {
+  overflow-x: scroll;
+  direction: rtl;
+}
+
+.watch-strip-viewport::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+.watch-strip-viewport { cursor: grab; }
+.watch-strip-viewport.is-dragging { cursor: grabbing; }
+.watch-strip-viewport.is-dragging .strip-frame img { transform: none; } /* no zoom mid-drag */
+.watch-strip-viewport.is-dragging img { user-select: none; -webkit-user-drag: none; }
+
+.watch-strip-track {
+  display: flex;
+  gap: clamp(10px, 1vw, 16px);
+  padding: 0 clamp(10px, 1vw, 16px);
+  width: max-content;
+}
+.strip-frame {
+  position: relative;
+  flex: 0 0 clamp(160px, 19vw, 260px);   /* ~5 per screen on desktop, ~2 on phone */
+  aspect-ratio: 4 / 5;
+  margin: 0;
+  overflow: hidden;
+  background: var(--ink-green-2);
+  border: 1px solid var(--line-soft-2);
+}
+.strip-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.strip-frame:hover img { transform: scale(1.05); }
+
+.watch-strip-cta { text-align: center; }
+
+
+/* ===========================================================
+   КОНТАКТИ / ПІДВАЛ (CONTACT / FOOTER)
+   .contact-columns — 3 колонки контактів; внизу лого та копірайт.
+=========================================================== */
+.contact {
+  background: var(--ink-deepest);
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: 0.78fr 1.22fr;
+  min-height: 720px;
+}
+.contact-photo { min-height: 100%; }
+.contact-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+.contact-content {
+  padding: var(--gap-section) clamp(28px, 6vw, 80px);
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.contact-statement {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.7rem, 3.2vw, 2.4rem);
+  line-height: 1.25;
+  margin: 4px 0;
+  color: var(--cream);
+}
+
+.contact-columns {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 24px;
+  margin: 24px 0;
+}
+.contact-col h4 {
+  font-family: var(--font-utility);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+  color: var(--brass);
+  margin: 0 0 12px;
+}
+.contact-col p {
+  font-size: 0.88rem;
+  color: var(--cream-dim);
+  margin: 0 0 10px;
+}
+
+.lang-footnote {
+  font-size: 0.76rem;
+  color: var(--cream-dim-2);
+  margin: 16px 0;
+}
+
+.footer-logo-block {
+  max-width: 320px;
+  margin: 8px 0 28px;
+
+  padding: 24px;
+
+}
+.footer-logo{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.footer-statement-en {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  margin: 0 0 6px;
+}
+.footer-statement-ua {
+  font-size: 0.88rem;
+  color: var(--cream-dim);
+  margin: 0 0 24px;
+}
+
+.copyright {
+  font-size: 0.74rem;
+  color: var(--cream-dim-2);
+  margin: 28px 0 0;
+}
+
+/* ===========================================================
+   АДАПТИВ (RESPONSIVE) — поведінка на планшетах і телефонах
+   Тут блоки перебудовуються під вузькі екрани.
+   • max-width: 1024px — планшети (двоколонкові секції стають в один стовпчик).
+   • max-width: 640px  — телефони (сітки стискаються до 1–2 колонок).
+   Правки тут впливають ЛИШЕ на відповідний розмір екрана.
+=========================================================== */
+
+@media (min-width: 1024px){
+  .journey-photo img{
+    object-position: 70% 50%;
+  }
+}
+@media (max-width: 1024px) {
+  .service-grid, .journey-grid, .portfolio-grid, .contact-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .journey-photo, .portfolio-photo { align-self: auto; }
+  .journey-photo img, .portfolio-photo img { position: static; aspect-ratio: 16/9; max-height: none; }
+  /* .service-photo { aspect-ratio: 16/9; } */
+  .contact-photo { min-height: auto; }
+  .contact-grid { min-height: auto; }
+  .service-grid { min-height: auto; }
+
+  .pillars, .tiers-grid, .contact-columns { grid-template-columns: 1fr 1fr; }
+  .service-cards { grid-template-columns: 1fr 1fr; }
+  .timeline-step { grid-template-columns: 1fr; gap: 16px; }
+}
+
+@media (max-width: 640px) {
+
+  .hero-grid, .service-grid { 
+    /* display:grid; */
+    align-items: stretch;
+    grid-template-columns: 1fr;
+    grid-template-rows: 100px 1fr;
+    overflow: hidden;
+  }
+
+
+  .gallery-frame-copy {
+    display:initial;
+  }
+
+  .gallery-frame, .gallery-frame-copy{
+    flex: 0 0 100%;
+  }
+
+  @keyframes scrollTop {
+  from { left: 110%; }
+  to { left: -310%; }
+  }
+
+  .hero-gallery{
+    position: relative;
+    gap: 0px;
+    margin:0;
+    order:0;
+    flex-direction: row;
+    animation: scrollTop 20s linear 1s infinite;
+
+    /* overflow: hidden; */
+  }
+
+  .hero-content{
+    order:1;
+  }
+
+  .service-grid, .journey-grid, .portfolio-grid, .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  .header-inner { flex-direction: column; align-items: flex-start; }
+  .pillars, .tiers-grid, .contact-columns, .portfolio-collage { grid-template-columns: 1fr; }
+  .gallery-row { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .hero-title { font-size: 2.2rem; }
+  .journey-footer { grid-template-columns: 1fr; }
+  .service-cards { grid-template-columns: 1fr; }
+  .portfolio-collage { grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
