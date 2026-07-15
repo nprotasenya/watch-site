@@ -87,7 +87,7 @@ a { color: inherit; }
   background: var(--line-soft);
   margin: 14px 0;
 }
-.rule--center { max-width: var(--container); margin: 40px auto; }
+.rule--center { margin: 40px auto; }
 
 .eyebrow {
   font-family: var(--font-utility);
@@ -181,7 +181,6 @@ a { color: inherit; }
   padding: 18px clamp(20px, 4vw, 56px);
 }
 .header-inner {
-  max-width: var(--container);
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
@@ -233,7 +232,6 @@ a { color: inherit; }
   padding: var(--gap-section) clamp(20px, 4vw, 56px);
 }
 .hero-grid {
-  max-width: var(--container);
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1.10fr 0.90fr;
@@ -412,7 +410,6 @@ a { color: inherit; }
 =========================================================== */
 .journey { padding: var(--gap-section) clamp(20px, 4vw, 56px); }
 .journey-grid {
-  max-width: var(--container);
   margin: 0 auto;
   display: grid;
   grid-template-columns: 0.78fr 1.22fr;
@@ -469,6 +466,7 @@ a { color: inherit; }
 .pillar-icon img{
   aspect-ratio: 1/1;
   height: 100%;
+  width:100%;
   object-fit: cover;
   object-position: center;
 }
@@ -544,10 +542,9 @@ a { color: inherit; }
   background: var(--ink-deepest);
   padding: 0 clamp(20px, 4vw, 56px);
 }
-.tiers-head { max-width: var(--container); margin: 0 auto; }
+.tiers-head { margin: 0 auto; }
 
 .tiers-grid {
-  max-width: var(--container);
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(4, minmax(0,1fr));
@@ -573,7 +570,7 @@ a { color: inherit; }
 }
 .tier-brands {
   font-family: var(--font-utility);
-  font-size: 0.72rem;
+  font-size: 1rem;
   letter-spacing: 0.02em;
   color: var(--cream-dim-2);
   line-height: 1.7;
@@ -581,7 +578,6 @@ a { color: inherit; }
 }
 
 .tiers-note {
-  max-width: var(--container);
   margin: 0 auto;
   font-size: 0.88rem;
   color: var(--cream-dim);
@@ -595,7 +591,6 @@ a { color: inherit; }
 =========================================================== */
 .portfolio { padding: var(--gap-section) clamp(20px, 4vw, 56px) }
 .portfolio-grid {
-  max-width: var(--container);
   margin: 0 auto;
   display: grid;
   grid-template-columns: 0.7fr 1.3fr;
@@ -799,15 +794,17 @@ a { color: inherit; }
    • max-width: 640px  — телефони (сітки стискаються до 1–2 колонок).
    Правки тут впливають ЛИШЕ на відповідний розмір екрана.
 =========================================================== */
-
 @media (min-width: 1024px){
   .journey-photo img{
     object-position: 70% 50%;
   }
 }
 @media (max-width: 1024px) {
-  .service-grid, .journey-grid, .portfolio-grid, .contact-grid {
-    grid-template-columns: 1fr 1fr;
+  .service-grid, .journey-grid, .portfolio-grid, .contact-grid { 
+    /* display:grid; */
+    align-items: stretch;
+    grid-template-columns: 1fr;
+    grid-template-rows: 200px 1fr;
   }
   .journey-photo, .portfolio-photo { align-self: auto; }
   .journey-photo img, .portfolio-photo img { position: static; aspect-ratio: 16/9; max-height: none; }
@@ -816,21 +813,20 @@ a { color: inherit; }
   .contact-grid { min-height: auto; }
   .service-grid { min-height: auto; }
 
-  .pillars, .tiers-grid, .contact-columns { grid-template-columns: 1fr 1fr; }
-  .service-cards { grid-template-columns: 1fr 1fr; }
+  .pillars, .contact-columns { grid-template-columns: 1fr 1fr 1fr; }
+  .tiers-grid { grid-template-columns: 1fr 1fr; }
+  .service-cards { grid-template-columns: 1fr 1fr 1fr; }
   .timeline-step { grid-template-columns: 1fr; gap: 16px; }
 }
 
 @media (max-width: 640px) {
 
-  .hero-grid, .service-grid { 
+  .hero-grid, .service-grid .journey-grid, .portfolio-grid, .contact-grid { 
     /* display:grid; */
     align-items: stretch;
     grid-template-columns: 1fr;
     grid-template-rows: 100px 1fr;
-    overflow: hidden;
   }
-
 
   .gallery-frame-copy {
     display:initial;
@@ -841,8 +837,14 @@ a { color: inherit; }
   }
 
   @keyframes scrollTop {
-  from { left: 110%; }
-  to { left: -310%; }
+  from { right: 10%; }
+  to { right: 310%; }
+  }
+
+  /* left впливає на протилежний маржин, задом його скролити не треба */
+  @keyframes scrollTopBackwards {
+  from { left: 10%; }
+  to { left: 310%; }
   }
 
   .hero-gallery{
@@ -852,17 +854,12 @@ a { color: inherit; }
     order:0;
     flex-direction: row;
     animation: scrollTop 20s linear 1s infinite;
-
-    /* overflow: hidden; */
   }
 
   .hero-content{
     order:1;
   }
 
-  .service-grid, .journey-grid, .portfolio-grid, .contact-grid {
-    grid-template-columns: 1fr;
-  }
   .header-inner { flex-direction: column; align-items: flex-start; }
   .pillars, .tiers-grid, .contact-columns, .portfolio-collage { grid-template-columns: 1fr; }
   .gallery-row { grid-template-columns: repeat(2, minmax(0,1fr)); }
