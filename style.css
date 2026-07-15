@@ -238,6 +238,7 @@ a { color: inherit; }
   grid-auto-rows: max-content;
   gap: clamp(40px, 5vw, 80px);
   align-items: start;
+  overflow: hidden;
 }
 .logo-mark {
   /*max-width: 420px;*/
