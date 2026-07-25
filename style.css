@@ -118,18 +118,50 @@ a { color: inherit; }
 .section-subtitle--center { text-align: center; }
 .section-subtitle--accent { color: var(--brass); font-style: normal; letter-spacing: 0.03em; }
 
-.btn {
+.btn-with-promo {
+  display:flex;
+  flex-direction: column;
+  justify-content: stretch;
+  gap:17px;
+}
+
+.btn-with-service {
+  display:flex;
+  flex-direction: row;
+  justify-content: stretch;
+  margin-top: 17px;
+  gap:17px;
+}
+
+.btn, .service-btn {
   display: inline-block;
   font-family: var(--font-utility);
   text-transform: uppercase;
   letter-spacing: 0.12em;
   font-size: 0.78rem;
-  text-decoration: none;
   padding: 17px 34px;
   border-radius: 2px;
   transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
   text-align: center;
 }
+
+.order-input, .service-input {
+  display: inline-block;
+  font-family: var(--font-utility);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+  padding: 17px 34px;
+  border-radius: 2px;
+  outline:none;
+  align-self: center;
+  text-align: center;
+}
+
+.order-input{
+  max-width: 200px;
+}
+
 .btn-outline {
   border: 1px solid var(--brass);
   color: var(--brass-light);
@@ -188,7 +220,7 @@ a { color: inherit; }
   justify-content: space-between;
   gap: 16px;
 }
-.header-eyebrow {
+.header-eyebrow, .header-contact {
   font-family: var(--font-utility);
   font-size: 0.72rem;
   letter-spacing: 0.18em;
@@ -584,7 +616,15 @@ a { color: inherit; }
   color: var(--cream-dim);
   text-align: center;
 }
-.tiers-cta { text-align: center; margin-top: 28px; }
+.tiers-cta { 
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+  justify-content: center;
+  align-items: center;
+  text-align: center; 
+  margin-top: 28px; 
+}
 
 /* ===========================================================
    ПОРТФОЛІО (PORTFOLIO) — фото зліва, колаж робіт справа
@@ -698,7 +738,13 @@ a { color: inherit; }
 }
 .strip-frame:hover img { transform: scale(1.05); }
 
-.watch-strip-cta { text-align: center; }
+.watch-strip-cta {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+  gap:17px;
+}
 
 
 /* ===========================================================
@@ -788,6 +834,31 @@ a { color: inherit; }
   margin: 28px 0 0;
 }
 
+.requisites{
+  margin-top: 24px;
+  display:flex;
+  flex-direction: column;
+  gap:6px;
+}
+
+.requisites>*{
+  margin: 0;
+  font-family: var(--font-utility);
+  color: var(--cream-dim);
+}
+
+.requisites>h2{
+  font-size: 1rem;
+}
+
+.requisites>h3{
+  font-size: 0.89rem;
+}
+
+.requisites>p{
+  font-size: 0.78rem;
+}
+
 /* ===========================================================
    АДАПТИВ (RESPONSIVE) — поведінка на планшетах і телефонах
    Тут блоки перебудовуються під вузькі екрани.
@@ -859,6 +930,11 @@ a { color: inherit; }
 
   .hero-content{
     order:1;
+  }
+
+  .watch-strip-cta{
+    flex-direction: column;
+    margin: 0 17px;
   }
 
   .header-inner { flex-direction: column; align-items: flex-start; }

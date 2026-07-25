@@ -34,6 +34,10 @@
 <header class="site-header">
   <div class="header-inner">
     <p class="header-eyebrow">Atelier de Montres Suisses · Swiss Watch Tailor</p>
+    <div class="header-contact">
+      <span id="header-cta-phone">Тел.</span>
+      +380 676 700 242
+    </div>
     <div class="lang-switch" id="lang-label" aria-label="Мовні версії">
       <nav class="lang-list">
         <a href="#" class="lang-item is-active">UA</a>
@@ -53,7 +57,7 @@
      • Лого: <video src="images/logo_gears_cropped.mp4"> (нижче є
        закоментований варіант із картинкою logo.png — за потреби).
      • Головний заголовок: <h1 class="hero-title">.
-     • Кнопка-заклик: <a class="btn btn-outline"> (текст усередині).
+     • Кнопка-заклик: <a class="btn order-btn btn-outline"> (текст усередині).
      • Міста: <p class="hero-cities">.
      • Фото галереї: 3 теги <img> у блоці .hero-gallery.
      • Стилі: .hero, .hero-title, .hero-gallery у style.css.
@@ -87,7 +91,10 @@
       </div>
 
       <div class="hero-cta-block">
-        <a href="https://wa.me/380676700242?text=I%20need%20a%20watch" class="btn btn-outline" id="hero-btn">Замовте Вашу Personal Bespoke session з хорложерьє</a>
+        <div class="btn-with-promo">
+          <input type="text" class="order-input btn-outline" id="hero-promo" placeholder="Промокод..."/> 
+          <a href="https://wa.me/380676700242?text=I%20need%20a%20watch" class="btn order-btn btn-outline" id="hero-btn">Замовте Вашу Personal Bespoke session з хорложерьє</a>
+        </div>
         <p class="hero-cities">Geneva · Lviv · Kyiv · Dnipro · Warsaw · Prague · Eschborn · Munich</p>
 
       </div>
@@ -157,7 +164,8 @@
   </div>
 
   <div class="watch-strip-cta">
-    <a href="https://wa.me/380676700242?text=I%20need%20a%20watch" class="btn btn-outline" id="strip-button">YOUR PERSONAL WATCH HERE</a>
+      <input type="text" class="order-input btn-outline" id="strip-promo" placeholder="Промокод..."/> 
+      <a href="https://wa.me/380676700242?text=I%20need%20a%20watch" class="btn order-btn btn-outline" id="strip-button">YOUR PERSONAL WATCH HERE</a>
   </div>
   
   <div class="watch-strip-viewport watch-strip-rtl">
@@ -253,7 +261,10 @@
       <p class="price-line" id="price-1">Кожна послуга — <strong>від 500 CHF</strong> з авторським наглядом Майстра</p>
       <p class="price-line" id="price-2">Спеціальний сервіс — пошук та придбання будь-якого годинника під замовлення. Від <strong>199 CHF + 10% від вартості</strong>.</p>
 
-            <a href="https://wa.me/380676700242?text=I%20need%20a%20watch" class="btn btn-outline" id="service-btn">Зарезервуйте Вашу Private Bespoke Session</a>
+      <div class="btn-with-promo">
+          <input type="text" class="order-input btn-outline" id="service-promo" placeholder="Промокод..."/> 
+          <a href="https://wa.me/380676700242?text=I%20need%20a%20watch" class="btn order-btn btn-outline" id="service-btn">Зарезервуйте Вашу Private Bespoke Session</a>
+      </div>
     </div>
 
   </div>
@@ -371,7 +382,10 @@
         </div>
       </div>
 
-      <a href="https://wa.me/380676700242?text=I%20need%20a%20watch" class="btn btn-outline" id="journey-btn">Ваша Personal Bespoke Session тут</a>
+      <div class="btn-with-promo">
+          <input type="text" class="order-input btn-outline" id="journey-promo" placeholder="Промокод..."/> 
+          <a href="https://wa.me/380676700242?text=I%20need%20a%20watch" class="btn order-btn btn-outline" id="journey-btn">Ваша Personal Bespoke Session тут</a>
+      </div>
     </div>
 
   </div>
@@ -436,8 +450,9 @@
 
   <p class="tiers-note" id="tiers-note">Всі годинники виготовляються виключно на індивідуальне замовлення. Ціна залежить від обраного механізму та складності виконання. Від 500 CHF.</p>
 
-  <div class="tiers-cta">
-    <a href="https://wa.me/380676700242?text=I%20need%20a%20watch" class="btn btn-outline" id="tiers-button">Зарезервуйте Вашу Personal Bespoke Session з вашим хорложерьє</a>
+    <div class="tiers-cta">
+      <input type="text" class="order-input btn-outline" id="tiers-promo" placeholder="Промокод..."/> 
+      <a href="https://wa.me/380676700242?text=I%20need%20a%20watch" class="btn order-btn btn-outline" id="tiers-button">Зарезервуйте Вашу Personal Bespoke Session з вашим хорложерьє</a>
   </div>
 </section>
 
@@ -493,7 +508,8 @@
 
       <div class="portfolio-cta-row">
         <p id="portfolio-contact">Зарезервуйте зустріч з хорложерьє</p>
-        <a href="https://wa.me/380676700242?text=I%20need%20a%20watch" class="btn btn-outline" id="portfolio-button">Ваша Private Bespoke Session тут</a>
+        <input type="text" class="order-input btn-outline" id="portfolio-promo" placeholder="Промокод..."/> 
+        <a href="https://wa.me/380676700242?text=I%20need%20a%20watch" class="btn order-btn btn-outline" id="portfolio-button">Ваша Private Bespoke Session тут</a>
       </div>
     </div>
 
@@ -543,7 +559,7 @@
           <p>Lviv · Kyiv · Dnipro</p>
           <p>Warsaw · Prague</p>
           <p>Eschborn · Munich</p>
-          <p>Geneva HQ</p>
+          <p>Geneva</p>
         </div>
       </div>
 
@@ -558,10 +574,22 @@
 </div>
       <p class="footer-statement-en">One watch. One owner. One lifetime.</p>
       <p class="footer-statement-ua" id="contact-tagline">Один годинник. Один власник. Одне життя.</p>
-
-      <a href="https://wa.me/380676700242?text=I%20need%20a%20watch" class="btn btn-outline" id="contact-button">Ваша Personal Bespoke Session з Вашим хорложерьє тут</a>
-
+      <div class="btn-with-promo">
+        <input type="text" class="order-input btn-outline" id="contact-promo" placeholder="Промокод..."/> 
+        <a href="https://wa.me/380676700242?text=I%20need%20a%20watch" class="btn order-btn btn-outline" id="contact-button">Ваша Personal Bespoke Session з Вашим хорложерьє тут</a>
+      </div>
+      <div class="btn-with-service">
+        <input type="text" class="service-input btn-outline" maxlength="4" id="contact-service" placeholder="Серійний номер..."/> 
+        <a href="https://wa.me/380676700242?text=I%20need%20service" id="contact-service-btn" class="btn service-btn btn-outline" id="service-button">Здати на сервіс</a>
+      </div>
       <p class="copyright">© 2026 Atelier de Montres Suisses · Swiss Watch Tailor · adms.watch</p>
+      <div class="requisites">
+        <h3 id="requisite-head">Реквізити виконавця</h2>
+        <h2 id="requisite-name">ФОП Протасеня Микола Іванович</h3>
+        <p id="requisite-desc">Платник єдиного податку 3ї групи, 5% без ПДВ</p>
+        <p id="requisite-contact">тел./whatsapp: +380676700242</p>
+        <p id="requisite-taxid">ІПН: 2726308714</p>
+      </div>
     </div>
 
   </div>
@@ -728,6 +756,7 @@
   var locals = {
     "UA" : {
     "lang-note": "(мовні версії — в розробці)",
+    "header-cta-phone": "Тел.",
     "hero-sub": "Ваш час у Вашому ДНК",
     "hero-1": "Ми не робимо годинники для всіх. Ми робимо один годинник — для Вас.",
     "hero-2": "Один годинник. Один власник. Одне життя.",
@@ -786,11 +815,21 @@
     "contact-follow-ukraine": "Партнер в Україні",
     "contact-follow-network": "Мережа партнерів",
     "contact-tagline": "Один годинник. Один власник. Одне життя.",
-    "contact-button": "Ваша Personal Bespoke Session з Вашим хорложерьє тут"
+    "contact-button": "Ваша Personal Bespoke Session з Вашим хорложерьє тут",
+    "hero-promo":"Промокод...",
+    "strip-promo":"Промокод...",
+    "journey-promo":"Промокод...",
+    "service-promo":"Промокод...",
+    "tiers-promo":"Промокод...",
+    "portfolio-promo":"Промокод...",
+    "contact-promo":"Промокод...",
+    "contact-service" : "Серійний Номер...",
+    "contact-service-btn" : "Здати на сервіс"
     }, 
 
     "EN" : {
     "lang-note": "(мовні версії — в розробці)",
+    "header-cta-phone": "Tel.",
     "hero-sub": "<br/>",
     "hero-1": "Your life, Your self, Your watch.<br/><br/>",
     "hero-2": "Only One of a kind in the world.",
@@ -849,10 +888,20 @@
     "contact-follow-ukraine": "Partner in Ukraine",
     "contact-follow-network": "Partner Network",
     "contact-tagline": "One watch. One owner. One lifetime.",
-    "contact-button": "Your Personal Bespoke Session with Your Horloger here"
+    "contact-button": "Your Personal Bespoke Session with Your Horloger here",
+    "hero-promo":"Promo...",
+    "strip-promo":"Promo...",
+    "journey-promo":"Promo...",
+    "service-promo":"Promo...",
+    "tiers-promo":"Promo...",
+    "portfolio-promo":"Promo...",
+    "contact-promo":"Promo...",
+    "contact-service" : "Serial Number...",
+    "contact-service-btn" : "Send to Service"
     },
 
     "DE" : {
+    "header-cta-phone": "Tel.",
     "hero-sub": "Ihre Zeit in Ihrer DNA",
     "hero-1": "Wir fertigen keine Uhren für alle. Wir fertigen eine Uhr — für Sie.",
     "hero-2": "Eine Uhr. Ein Besitzer. Ein Leben.",
@@ -911,10 +960,20 @@
     "contact-follow-ukraine": "Partner in der Ukraine",
     "contact-follow-network": "Partnernetzwerk",
     "contact-tagline": "Eine Uhr. Ein Besitzer. Ein Leben.",
-    "contact-button": "Vereinbaren Sie ein Treffen mit dem Uhrmacher"
+    "contact-button": "Vereinbaren Sie ein Treffen mit dem Uhrmacher",
+    "hero-promo":"Promo...",
+    "strip-promo":"Promo...",
+    "journey-promo":"Promo...",
+    "service-promo":"Promo...",
+    "tiers-promo":"Promo...",
+    "portfolio-promo":"Promo...",
+    "contact-promo":"Promo...",
+    "contact-service" : "Seriennummer...",
+    "contact-service-btn" : "Übergabe zur Dienststellung"
     }, 
 
     "FR" : {
+    "header-cta-phone": "Tel.",
     "hero-sub": "Votre Temps dans Votre ADN",
     "hero-1": "Nous ne fabriquons pas de montres pour tous. Nous fabriquons une montre — pour Vous.",
     "hero-2": "Une montre. Un propriétaire. Une vie.",
@@ -973,10 +1032,20 @@
     "contact-follow-ukraine": "Partenaire en Ukraine",
     "contact-follow-network": "Réseau de partenaires",
     "contact-tagline": "Une montre. Un propriétaire. Une vie.",
-    "contact-button": "Prenez rendez-vous avec l'horloger"
+    "contact-button": "Prenez rendez-vous avec l'horloger",
+    "hero-promo":"Promo...",
+    "strip-promo":"Promo...",
+    "journey-promo":"Promo...",
+    "service-promo":"Promo...",
+    "tiers-promo":"Promo...",
+    "portfolio-promo":"Promo...",
+    "contact-promo":"Promo...",
+    "contact-service" : "Numéro de série...",
+    "contact-service-btn" : "Envoyer au service"
     }, 
 
     "PL" : {
+    "header-cta-phone": "Tel.",
     "hero-sub": "Twój czas w Twoim DNA",
     "hero-1": "Nie robimy zegarków dla wszystkich. Robimy jeden zegarek — dla Ciebie.",
     "hero-2": "Jeden zegarek. Jeden właściciel. Jedno życie.",
@@ -1035,7 +1104,16 @@
     "contact-follow-ukraine": "Partner w Ukrainie",
     "contact-follow-network": "Sieć partnerów",
     "contact-tagline": "Jedna zegarek. Jeden właściciel. Jedno życie.",
-    "contact-button": "Zarezerwuj spotkanie Private Bespoke Session"
+    "contact-button": "Zarezerwuj spotkanie Private Bespoke Session",
+    "hero-promo":"Promo...",
+    "strip-promo":"Promo...",
+    "journey-promo":"Promo...",
+    "service-promo":"Promo...",
+    "tiers-promo":"Promo...",
+    "portfolio-promo":"Promo...",
+    "contact-promo":"Promo...",
+    "contact-service" : "Numer seryjny...",
+    "contact-service-btn" : "Przeniesienie do służby"
     }
   }
   // Localization. Choose the language from locals array, and apply strings to elements selected by IDs.
@@ -1056,11 +1134,58 @@
         {
           return;
         }
-        document.querySelector("#"+key).innerHTML = local[key];
+        if(localizedElem.tagName === "INPUT") {
+          document.querySelector("#"+key).placeholder = local[key];
+        }
+        else {
+          document.querySelector("#"+key).innerHTML = local[key];
+        }
       });
     }); 
   });
 
+  /*
+  ╔══════════════════════════════════════════════════════════════════╗
+  ║  Ввід номерів та промо.                                         ║
+  ╚══════════════════════════════════════════════════════════════════╝
+  */ 
+
+  var promoButtons = document.querySelectorAll('.order-btn');  
+  var promoInputs = document.querySelectorAll('.order-input');
+
+  const orderURL = "https://wa.me/380676700242?text=I%20need%20a%20watch"
+
+  if(promoInputs[0].value != 0)
+  {
+    var suffix = encodeURI(" "+promoInputs[0].value);
+    promoButtons.forEach((orderButton) => orderButton.href=orderURL+suffix);
+  }
+
+  promoInputs.forEach((input) => {
+    input.addEventListener("input", (e) => {
+      promoInputs.forEach((otherInput) => otherInput.value = input.value);
+      var suffix = encodeURI(" "+input.value);
+      promoButtons.forEach((orderButton) => orderButton.href=orderURL+suffix);
+    });
+  });
+
+  var serviceButtons = document.querySelectorAll('.service-btn');  
+  var serviceInputs = document.querySelectorAll('.service-input');
+
+  const serviceURL = "https://wa.me/380676700242?text=I%20need%20service"
+
+  if(serviceInputs[0].value != 0)
+  {
+    serviceButtons.forEach((serviceButton) => serviceButton.href=serviceURL+encodeURI(" "+serviceInputs[0].value));
+  }
+
+  serviceInputs.forEach((input) => {
+    input.addEventListener("input", (e) => {
+      serviceInputs.forEach((otherInput) => otherInput.value = input.value);
+      var suffix = encodeURI(" "+input.value);
+      serviceButtons.forEach((serviceButton) => serviceButton.href=serviceURL+suffix);
+    });
+  });
 })();
 </script>
 
