@@ -847,7 +847,7 @@ margin: 16px 0;
 @media (max-width: 640px) {
   .header-eyebrow{
     flex-direction: column;
-    
+    align-items: center;
   }
 
   .hero-grid, .service-grid .journey-grid, .portfolio-grid, .contact-grid { 
