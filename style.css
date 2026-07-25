@@ -206,6 +206,8 @@ a { color: inherit; }
   text-transform: uppercase;
   color: var(--cream-dim);
   margin: 0;
+  display: flex;
+  align-items: center;
 }
 .lang-switch {
   display: flex;
@@ -843,6 +845,10 @@ margin: 16px 0;
 }
 
 @media (max-width: 640px) {
+  .header-eyebrow{
+    flex-direction: column;
+    
+  }
 
   .hero-grid, .service-grid .journey-grid, .portfolio-grid, .contact-grid { 
     /* display:grid; */
