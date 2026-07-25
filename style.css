@@ -118,14 +118,14 @@ a { color: inherit; }
 .section-subtitle--center { text-align: center; }
 .section-subtitle--accent { color: var(--brass); font-style: normal; letter-spacing: 0.03em; }
 
-.btn-with-promo {
+.btn-input-vertical {
   display:flex;
   flex-direction: column;
   justify-content: stretch;
   gap:17px;
 }
 
-.btn-with-service {
+.btn-input-horizontal {
   display:flex;
   flex-direction: row;
   justify-content: stretch;
