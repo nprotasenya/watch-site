@@ -156,6 +156,7 @@ a { color: inherit; }
   font-size: 0.78rem;
   padding: 17px 34px;
   border-radius: 2px;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
   outline:none;
   align-self: center;
   text-align: center;
@@ -813,6 +814,36 @@ a { color: inherit; }
   color: var(--cream-dim);
   margin: 0 0 10px;
 }
+
+.network-partner{
+  display:inline-block;
+}
+
+.partner-link {
+  position: relative;
+  font-size: 0.88rem;
+  color: var(--cream-dim);
+  margin: 0 0 10px;
+}
+
+.partner-phone {
+  position: absolute;
+  background-color: var(--ink-green-2);
+  border: 1px solid var(--brass);
+  border-radius: 2px;
+  z-index: 10;
+}
+
+.partner-phone>a {
+  font-size: 0.88rem;
+  color: var(--brass-light);
+  margin:10px;
+}
+
+.partner-phone-hidden {
+  display:none;
+}
+
 .social-icons{
   display: flex;
   align-items: center;
