@@ -710,11 +710,13 @@ a { color: inherit; }
 }
 
 .watch-strip-viewport {
+  position: relative;
   width: 100%;
-  overflow-x: auto;
+  overflow-x: scroll;
   overflow-y: hidden;
   padding: clamp(28px, 4vw, 56px) 0;
   -webkit-overflow-scrolling: touch;
+  white-space: nowrap;
   scrollbar-width: none;            /* Firefox */
   -ms-overflow-style: none;         /* IE/Edge */
 }
@@ -738,6 +740,7 @@ a { color: inherit; }
 }
 .strip-frame {
   position: relative;
+  width: 160px; /* Fixes other browser width calc */
   flex: 0 0 clamp(160px, 19vw, 260px);   /* ~5 per screen on desktop, ~2 on phone */
   aspect-ratio: 4 / 5;
   margin: 0;
@@ -745,6 +748,7 @@ a { color: inherit; }
   background: var(--ink-green-2);
   border: 1px solid var(--line-soft-2);
 }
+
 .strip-frame img {
   width: 100%;
   height: 100%;
